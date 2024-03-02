@@ -40,8 +40,8 @@ class Migration(migrations.Migration):
                 ('address', models.CharField(max_length=100)),
                 ('created_add', models.DateField(auto_now_add=True)),
                 ('start_time', models.DateField(default=datetime.date(2024, 3, 2))),
-                ('id_employer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='employer', to='app.user')),
-                ('id_worker', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='worker', to='app.user')),
+                ('id_employer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='employer', to='default.user')),
+                ('id_worker', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='worker', to='default.user')),
             ],
         ),
         migrations.CreateModel(
@@ -50,8 +50,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('price', models.DecimalField(decimal_places=2, max_digits=5)),
                 ('is_active', models.IntegerField(choices=[(1, 'true'), (2, 'False')])),
-                ('service_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.service')),
-                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='app.user')),
+                ('service_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='default.service')),
+                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='default.user')),
             ],
         ),
     ]

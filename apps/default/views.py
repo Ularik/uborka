@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from .models import User, Service, UserService, Order
-from .serializer import UserSerializer, ServiceSerializer
+from .serializer import UserSerializer, ServiceSerializer, OrderSerializer
 
 
 # Create your views here.
@@ -12,7 +12,6 @@ def users(request):
     if request.method == 'GET':
         users_all = User.objects.all()
         serializer = UserSerializer(users_all, many=True)
-        print(serializer.data)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     if request.method == 'POST':
@@ -34,3 +33,17 @@ def service(request):
         if new_service.is_valid(raise_exception=True):
             new_service.save()
             return Response(new_service, status=status.HTTP_201_CREATED)
+
+@api_view(['GET', 'POST'])
+def order(request):
+    if request.method == 'GET':
+        orders = Order.objects.all()
+        serializer = OrderSerializer(orders, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    if request.method == 'POST':
+        new_order = OrderSerializer(data=request.data)
+        if new_order.is_valid(raise_exception=True):
+            new_order.save()
+            return Response(new_order.data, status=status.HTTP_201_CREATED)
+

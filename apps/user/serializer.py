@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, UserService, Service, Order
+from .models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -8,7 +8,10 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'role', 'password', 'price', 'phone_number')
 
 
-class ServiceSerializer(serializers.ModelSerializer):
+class UserCreateSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Service
+        model = User
         fields = '__all__'
+
+
+
