@@ -1,5 +1,5 @@
 from django.db import models
-from core.apps.user.models import User
+from apps.user.models import User
 
 
 class Service(models.Model):

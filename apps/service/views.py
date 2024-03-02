@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from apps.default.models import Service
+from .models import Service
 from .serializers import ServiceListSerializer, ServiceCreateSerializer
 
 

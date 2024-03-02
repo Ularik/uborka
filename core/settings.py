@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apps.order.apps.OrderConfig',
     'apps.service.apps.ServiceConfig',
     'apps.user.apps.UserConfig',
+    'apps.userservice.apps.UserserviceConfig'
     'rest_framework',
 ]
 

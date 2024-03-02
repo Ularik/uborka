@@ -1,5 +1,6 @@
 from django.db import models
-from core.apps.user.models import User
+from apps.user.models import User
+from django.utils import timezone
 # Create your models here.
 class Order(models.Model):
     id_employer = models.ForeignKey(User, on_delete=models.PROTECT, related_name='employer')

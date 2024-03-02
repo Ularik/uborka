@@ -1,5 +1,5 @@
 from rest_framework import generics
-from apps.default.models import Order
+from apps.order.models import Order
 from .serializers import OrderListSerializers, OrderCreateSerializers
 
 
