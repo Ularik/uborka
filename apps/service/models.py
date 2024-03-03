@@ -11,7 +11,7 @@ class Service(models.Model):
 
 class UserService(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
-    service = models.ForeignKey(Service, on_delete=models.PROTECT)
+    service = models.ForeignKey(Service, on_delete=models.PROTECT, related_name='service_name')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     is_active = models.BooleanField()
     description = models.TextField()

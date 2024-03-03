@@ -8,10 +8,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'role', 'password', 'price', 'phone_number')
 
 
-class UserCreateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = '__all__'
 
 
 

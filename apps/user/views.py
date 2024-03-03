@@ -2,7 +2,7 @@ from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
 from .models import User
-from .serializer import UserSerializer, UserCreateSerializer
+from .serializer import UserSerializer
 
 class UserListView(generics.ListAPIView):
     queryset = User.objects.all()
@@ -10,7 +10,7 @@ class UserListView(generics.ListAPIView):
 
 
 class UserCreateView(generics.CreateAPIView):
-    serializer_class = UserCreateSerializer
+    serializer_class = UserSerializer
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
